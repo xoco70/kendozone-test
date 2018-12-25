@@ -1,10 +1,8 @@
 <?php
 
-use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
-use Illuminate\Foundation\Auth\User;
-use Xoco70\KendoTournaments\Models\Championship;
-use Xoco70\KendoTournaments\Models\Competitor;
+use Xoco70\LaravelTournaments\Models\Championship;
+use Xoco70\LaravelTournaments\Models\Competitor;
 
 class CompetitorSeeder extends Seeder
 {
@@ -19,11 +17,11 @@ class CompetitorSeeder extends Seeder
 
         $championship = Championship::where('tournament_id', 1)->first();
 
-        $users[] = factory(User::class)->create(['name' => 't1']);
-        $users[] = factory(User::class)->create(['name' => 't2']);
-        $users[] = factory(User::class)->create(['name' => 't3']);
-        $users[] = factory(User::class)->create(['name' => 't4']);
-        $users[] = factory(User::class)->create(['name' => 't5']);
+        $users[] = factory(\Illuminate\Foundation\Auth\User::class)->create(['name' => 't1']);
+        $users[] = factory(\Illuminate\Foundation\Auth\User::class)->create(['name' => 't2']);
+        $users[] = factory(\Illuminate\Foundation\Auth\User::class)->create(['name' => 't3']);
+        $users[] = factory(\Illuminate\Foundation\Auth\User::class)->create(['name' => 't4']);
+        $users[] = factory(\Illuminate\Foundation\Auth\User::class)->create(['name' => 't5']);
 
         foreach ($users as $user) {
             factory(Competitor::class)->create([

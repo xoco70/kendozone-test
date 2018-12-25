@@ -2,13 +2,11 @@
 
 
 $factory->define(\Illuminate\Foundation\Auth\User::class, function (Faker\Generator $faker) {
-    $email = $faker->email;
-
     return [
-        'name'     => $faker->name,
-        'email'    => $email,
-        'password' => bcrypt(str_random(10)),
-        'firstname' => $faker->firstName,
-        'lastname' => $faker->lastName,
+        'name'               => $faker->name,
+        'email'              => $faker->unique()->safeEmail,
+        'password'           => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'firstname'          => $faker->firstname,
+        'lastname'           => $faker->lastName,
     ];
 });
